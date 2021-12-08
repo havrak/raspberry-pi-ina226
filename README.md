@@ -1,17 +1,17 @@
 # What it is
 
-Use INA226 chip from Raspberry Pi to measure DC voltage, current and power consumption of a load.
+Simple library to interface with INA226 chip from Raspberry Pi to measure DC voltage, current and power consumption of a load.
 
-# How to compile
+# How to use
 
-Enable i2c using `raspi-config` or make sure that this line is uncommented in the `/boot/config.txt` and reboot if necessary.
 
 ```dtparam=i2c_arm=on```
 
 ```
 $ sudo apt-get install wiringpi i2c-tools libi2c-dev
-$ make
 ```
+
+Add reference to library to your cmake files via the standart method.
 
 # How to connect.
 
@@ -46,10 +46,3 @@ Some parameters you may want to change in the code:
 The output is continuous CSV with Voltage in V, Current in mA, Power in mW, Shunt Voltage in mV, Energy per year in kWh.
 
 For example the "Hello World" of a led+resistor connected to USB cable:
-
-```
-date,time,timestamp,bus voltage(V),current (mA),power (mW),shunt voltage (mV),energy (kWh year)
-2019-09-13,21:11:49,1568405509,5.024,19.906,100.003,1.990,0.877
-2019-09-13,21:11:50,1568405510,5.024,19.937,100.156,1.992,0.878
-2019-09-13,21:11:51,1568405511,5.025,19.937,100.181,1.992,0.878
-```
