@@ -29,10 +29,6 @@ void INA226::ina226_calibrate(float r_shunt, float max_current)
 	unsigned short int calib_reg = (unsigned short int) floorf(calib);
 	current_lsb = 0.00512 / (r_shunt * calib_reg);
 
-	//printf("LSB %f\n",current_lsb);
-	//printf("Calib %f\n",calib);
-	//printf("Calib R%#06x / %d\n",calib_reg,calib_reg);
-
 	write16(fd,INA226_REG_CALIBRATION, calib_reg);
 }
 
